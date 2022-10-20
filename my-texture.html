@@ -118,7 +118,7 @@ function initialize()
 			type : 'pattern', patternUrl : "data/" + patternArray[i] + ".patt",
 		});
 		markerControls.addEventListener("marker"+patternArray[i]+"found", () => {
-			concole.log("marker"+patternArray[i]+"found");
+			console.log("marker"+patternArray[i]+"found");
 		});
 	
 		let mesh = new THREE.Mesh( 
