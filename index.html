@@ -31,6 +31,9 @@ var markerRoot1, markerRoot2;
 
 var mesh1;
 
+let readId = -1;
+export {readId};
+
 initialize();
 animate();
 
@@ -110,7 +113,6 @@ function initialize()
 	
 	let patternArray = ["letterA", "letterB", "letterC", "letterD", "letterF", "kanji", "hiro"];
 	let colorArray   = [0xff0000, 0xff8800, 0xffff00, 0x00cc00, 0x0000ff, 0xcc00ff, 0xcccccc];
-
 	//markerControlsを配列の要素として取り扱う
 	let markerControlsarray = new Array();
 
@@ -125,17 +127,10 @@ function initialize()
 			type : 'pattern', patternUrl : "data/" + patternArray[i] + ".patt",
 		}));
 		
-		
-		//markerControls.addEventListener("markerFound", () => {
-			// マーカーが見つかっている時は毎秒呼ばれる
-			//うまくいかなかった、、for文が一瞬だからすぐ捨てられるのが原因？
-		//	console.log("marker is visible");
-		//});
-		
 		markerControlsarray[markerControlsarray.length - 1].addEventListener("markerFound", () => {
-			// マーカーが見つかっている時は毎秒呼ばれる
-			//うまくいかなかった、、for文が一瞬だからすぐ捨てられるのが原因？
-			console.log("marker"+i+" is visible");
+			readId = i+1;
+      console.log("marker"+readId+" is visible");
+      
 		});
 
 		
