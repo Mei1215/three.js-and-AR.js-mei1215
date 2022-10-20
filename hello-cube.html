@@ -119,6 +119,7 @@ function initialize()
 	let markerControls1 = new THREEx.ArMarkerControls(arToolkitContext, markerRoot1, {
 		type: 'pattern', patternUrl: "data/hiro.patt",
 	})
+
 	//正方形作ってる
 	let geometry1	= new THREE.CubeGeometry(1,1,1);
 	let material1	= new THREE.MeshNormalMaterial({
@@ -126,6 +127,11 @@ function initialize()
 		opacity: 0.5,
 		side: THREE.DoubleSide
 	}); 
+
+	markerControls1.addEventListener("markerFound", () => {
+		// マーカーが見つかっている時は毎秒呼ばれる
+		console.log("marker is visible");
+	});
 	
 	mesh1 = new THREE.Mesh( geometry1, material1 );
 	mesh1.position.y = 0.5;
